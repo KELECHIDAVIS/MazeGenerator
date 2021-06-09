@@ -82,7 +82,7 @@ public class Cell extends Rectangle
 			if(!panel.stack.isEmpty())
 			{
 				roadblock++; 
-				System.out.println("Roadblocks: "+roadblock);
+				//System.out.println("Roadblocks: "+roadblock);
 			}
 			
 			

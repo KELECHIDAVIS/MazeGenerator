@@ -4,9 +4,8 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.Stack;
 
-import javax.swing.JPanel;
-
 import Framework.GamePanel;
+import Framework.audio.Audio;
 
 public class Panel extends GamePanel
 {
@@ -15,6 +14,7 @@ public class Panel extends GamePanel
 	protected int rows, cols; 
 	protected  ArrayList<Cell> grid = new ArrayList<Cell>(); 
 	protected Stack stack = new Stack();
+	protected Audio completion = new Audio("/ding.wav"); 
 	protected Cell current; 
 	protected Thread gameThread ; 
 	private boolean done  =false ; 
@@ -27,6 +27,7 @@ public class Panel extends GamePanel
 		this.setBackground(Color.black);
 		this.cols = (int)(width/cellWidth); 
 		this.rows = (int)(height/cellWidth);
+		
 		
 		
 		
@@ -49,6 +50,7 @@ public class Panel extends GamePanel
 		
 	}
 	
+
 	@Override
 	public void paint(Graphics g)
 	{
@@ -69,7 +71,7 @@ public class Panel extends GamePanel
 	}
 	
 	
-	public void update()
+	public void update() throws NullPointerException 
 	{
 		
 		//Step 1 for the algorithm
@@ -96,6 +98,7 @@ public class Panel extends GamePanel
 		{
 			System.out.println("done");
 			done  = true; 
+			completion.play(); 
 		}else {
 			revert(); 
 		}

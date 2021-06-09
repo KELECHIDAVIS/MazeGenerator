@@ -6,6 +6,6 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/kboss/OneDrive/Desktop/Pancake.jar"/>
+	<classpathentry kind="lib" path="C:/Users/kboss/OneDrive/Desktop/Pancake.jar" sourcepath="/Pancake"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

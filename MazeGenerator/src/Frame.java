@@ -1,25 +1,18 @@
 import javax.swing.JFrame;
 
 import Framework.GameFrame;
+import Framework.GamePanel;
 
 public class Frame extends GameFrame
 {
-	
-	
-	
-	Frame( String title)
+
+	public Frame(int width, int height, String title, GamePanel panel)
 	{
-		super( title); 
-		Panel panel = new Panel(); 
-		add(panel); 
-		
-		
-		setVisible(true); 
-		
-		pack(); 
-		setLocationRelativeTo(null); 
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+		super(width, height, title, panel);
 		
 	}
+	
+	
+	
 
 }

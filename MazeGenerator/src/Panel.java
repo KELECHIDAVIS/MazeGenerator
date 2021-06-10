@@ -1,6 +1,8 @@
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.Stack;
 
@@ -9,14 +11,13 @@ import Framework.audio.Audio;
 
 public class Panel extends GamePanel
 {
-	private final int width=800, height=800; 
-	private final double UPS = 60.0 ; //increase the speed of the simulation caps at 60 
+	protected final int width=600, height=600;  // you can make the maze as wide or as long as you want
 	protected int rows, cols; 
 	protected  ArrayList<Cell> grid = new ArrayList<Cell>(); 
 	protected Stack stack = new Stack();
 	protected Audio completion = new Audio("/ding.wav"); 
 	protected Cell current; 
-	protected Thread gameThread ; 
+	
 	private boolean done  =false ; 
 	protected final int cellWidth = 40; 
 	protected float goalPercent = 0.94f; 
@@ -43,8 +44,8 @@ public class Panel extends GamePanel
 		this.current = grid.get(0); 
 		this.current.visited = true; 
 		
-		gameThread = new Thread(this); 
-		gameThread.start(); 
+		this.UPS = 60.0; //FPS
+		this.start(); 
 		
 		
 		
@@ -55,7 +56,7 @@ public class Panel extends GamePanel
 	public void paint(Graphics g)
 	{
 		
-		super.paint(g);
+		super.paintComponent(g);
 		for(int i =0; i<grid.size();i++) 
 		{
 			grid.get(i).draw(g); 
@@ -101,6 +102,8 @@ public class Panel extends GamePanel
 			completion.play(); 
 		}else {
 			revert(); 
+			//this is where it should look to solve
+			
 		}
 		repaint(); 
 	}
@@ -174,6 +177,70 @@ public class Panel extends GamePanel
 				
 			}
 		}
+		
+	}
+
+
+	@Override
+	public void keyTyped(KeyEvent e)
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void keyPressed(KeyEvent e)
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void keyReleased(KeyEvent e)
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void mouseClicked(MouseEvent e)
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void mousePressed(MouseEvent e)
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void mouseReleased(MouseEvent e)
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void mouseEntered(MouseEvent e)
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void mouseExited(MouseEvent e)
+	{
+		// TODO Auto-generated method stub
 		
 	}
 
